@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio da Máquina de Turing!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Desafio da Máquina de Turing!</h1>
+    </header>
+
+    <main>
+        <section id="config-section">
+            <h2>Monte Sua Máquina Mágica!</h2>
+            <div class="form-group">
+                <label for="states">Estados (ex: q0,q1,qf):</label>
+                <input type="text" id="states" value="q0,q1,qf">
+            </div>
+            <div class="form-group">
+                <label for="alphabet">Alfabeto da Fita (ex: 0,1):</label>
+                <input type="text" id="alphabet" value="0,1">
+            </div>
+            <div class="form-group">
+                <label for="blank_symbol">Símbolo Branco (ex: B):</label>
+                <input type="text" id="blank_symbol" value="B">
+            </div>
+            <div class="form-group">
+                <label for="initial_state">Estado Inicial (ex: q0):</label>
+                <input type="text" id="initial_state" value="q0">
+            </div>
+            <div class="form-group">
+                <label for="final_states">Estados Finais (ex: qf):</label>
+                <input type="text" id="final_states" value="qf">
+            </div>
+            <div class="form-group">
+                <label for="input_string">Fita de Entrada (ex: 1011):</label>
+                <input type="text" id="input_string" value="1011">
+            </div>
+            <div class="form-group">
+                <label for="transitions">Regras de Transição (uma por linha: estado_atual,simbolo_lido,novo_estado,simbolo_escrito,direcao(L/R/S)):</label>
+                <textarea id="transitions" rows="6">
+q0,0,q0,0,R
+q0,1,q1,0,R
+q1,0,q0,1,L
+q1,1,qf,1,S
+q0,B,qf,B,S
+q1,B,qf,B,S
+                </textarea>
+            </div>
+            <button id="start-button">Começar Aventura!</button>
+        </section>
+
+        <section id="simulation-area">
+            <h2>Painel de Controle da Máquina</h2>
+            <div id="tape-container">
+                <!-- A fita será gerada aqui -->
+            </div>
+            <div id="machine-status">
+                <p>Estado Atual: <span id="current-state-display">-</span></p>
+                <p>Passos Realizados: <span id="steps-display">0</span></p>
+            </div>
+            <div id="controls">
+                <button id="step-button" disabled>Próximo Passo Mágico</button>
+                <button id="reset-button" disabled>Reiniciar Desafio</button>
+            </div>
+            <div id="message-area">
+                <p id="game-message">Configure sua máquina e comece a aventura!</p>
+            </div>
+        </section>
+
+        <section id="info-section">
+            <h2>Decifre o Enigma da Computação!</h2>
+            <p>Bem-vindo ao Simulador da Máquina de Turing! Seu objetivo é configurar a máquina e observar como ela processa a fita. Uma Máquina de Turing é um modelo matemático de computação que define uma máquina abstrata que manipula símbolos em uma fita de acordo com uma tabela de regras. Apesar de sua simplicidade, uma máquina de Turing pode ser adaptada para simular a lógica de qualquer algoritmo de computador.</p>
+            <p><strong>Como Jogar:</strong></p>
+            <ol>
+                <li>Defina os estados, alfabeto, símbolo branco, estado inicial e estados finais da sua máquina.</li>
+                <li>Insira a cadeia de símbolos na fita inicial.</li>
+                <li>Escreva as regras de transição. Cada regra diz à máquina o que fazer com base em seu estado atual e no símbolo que está lendo.</li>
+                <li>Clique em "Começar Aventura!" e observe a mágica acontecer! Você pode avançar passo a passo ou reiniciar.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>Projeto de Faculdade - Simulador de Máquina de Turing Gamificado</p>
+    </footer>
+
+    <script src="turing_machine.js"></script>
+</body>
+</html>
